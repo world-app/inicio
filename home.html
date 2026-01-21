@@ -14,7 +14,7 @@ body {
     color: white;
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
-    padding-bottom: 140px; /* espacio para anuncio */
+    padding-bottom: 140px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -102,29 +102,31 @@ button:not(:disabled) {
 
 <body>
 
+<!-- LOGO -->
 <div class="logo-section">
     <img src="https://world-app.github.io/docs/2702606_ico.png" alt="GT IPTV" class="logo">
 </div>
 
+<!-- TEXTO Y CONTADOR -->
 <div class="content-section">
     <div class="message" id="message">Inicializando APP...</div>
     <div class="countdown" id="countdown">10</div>
 </div>
 
+<!-- BOTÓN -->
 <div class="button-section">
     <button id="accessButton" disabled>Acceder</button>
 </div>
 
-<!-- 🔥 PUBLICIDAD (SOLO TUS CÓDIGOS) -->
+<!-- 🔹 ANUNCIO NATIVO (TUYO) -->
 <div class="ad-container">
-    <script src="https://pl28533123.effectivegatecpm.com/c0/fa/b1/c0fab117c3bc319fb642565de68be6e9.js"></script>
-
     <script async data-cfasync="false"
         src="https://pl28533162.effectivegatecpm.com/0a54289caa2e24219cc50169ae637963/invoke.js">
     </script>
     <div id="container-0a54289caa2e24219cc50169ae637963"></div>
 </div>
 
+<!-- LÓGICA -->
 <script>
 let countdown = 10;
 const messages = [
@@ -158,6 +160,16 @@ const timer = setInterval(() => {
 button.addEventListener("click", () => {
     window.location.href = "go:azplay";
 });
+</script>
+
+<!-- 🔥 SOCIAL BAR (TUYO) -->
+<script>
+setTimeout(() => {
+    const s = document.createElement("script");
+    s.src = "https://pl28533123.effectivegatecpm.com/c0/fa/b1/c0fab117c3bc319fb642565de68be6e9.js";
+    s.async = true;
+    document.body.appendChild(s);
+}, 3000);
 </script>
 
 </body>
