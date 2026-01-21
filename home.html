@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>GT IPTV - Bienvenido</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -14,76 +13,74 @@ body {
     color: white;
     font-family: 'Roboto', Arial, sans-serif;
     margin: 0;
-    padding-bottom: 140px;
     height: 100vh;
     display: flex;
     flex-direction: column;
     overflow: hidden;
+
+    /* 👇 espacio reservado para anuncio */
+    padding-bottom: 140px;
 }
 
+/* LOGO */
 .logo-section {
     flex: 0 0 30%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
 .logo {
-    width: 150px;
-    height: 150px;
-    animation: pulse 2s ease-in-out infinite;
+    width: 140px;
+    height: 140px;
+    animation: pulse 2s infinite;
 }
-
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
+    0%,100% { transform: scale(1); }
     50% { transform: scale(1.05); }
 }
 
+/* CONTENIDO */
 .content-section {
-    flex: 0 0 40%;
+    flex: 0 0 35%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 .message {
     font-size: 20px;
     font-weight: 700;
-    text-align: center;
     margin-bottom: 15px;
+    text-align: center;
 }
-
 .countdown {
     font-size: 26px;
 }
 
+/* BOTÓN */
 .button-section {
-    flex: 1;
+    flex: 0 0 15%;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+    margin-bottom: 20px;
 }
-
 button {
-    padding: 10px 32px;
+    padding: 10px 34px;
     font-size: 18px;
     font-weight: 700;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 10px;
-    cursor: pointer;
 }
-
 button:disabled {
-    background-color: #666;
+    background: #666;
 }
-
 button:not(:disabled) {
-    background-color: #28a745;
+    background: #28a745;
 }
 
+/* ANUNCIO NATIVO */
 .ad-container {
     position: fixed;
     bottom: 0;
@@ -91,11 +88,13 @@ button:not(:disabled) {
     transform: translateX(-50%);
     width: 90%;
     max-width: 400px;
-    background-color: rgba(0,0,0,0.9);
-    padding: 10px;
-    text-align: center;
+    max-height: 120px;
+    background: rgba(0,0,0,0.9);
+    padding: 8px;
     border-radius: 10px;
-    z-index: 1000;
+    border: 3px solid #A90033;
+    z-index: 999;
+    overflow: hidden;
 }
 </style>
 </head>
@@ -104,10 +103,10 @@ button:not(:disabled) {
 
 <!-- LOGO -->
 <div class="logo-section">
-    <img src="https://world-app.github.io/docs/2702606_ico.png" alt="GT IPTV" class="logo">
+    <img src="https://world-app.github.io/docs/2702606_ico.png" class="logo" alt="GT IPTV">
 </div>
 
-<!-- TEXTO Y CONTADOR -->
+<!-- TEXTO -->
 <div class="content-section">
     <div class="message" id="message">Inicializando APP...</div>
     <div class="countdown" id="countdown">10</div>
@@ -118,7 +117,7 @@ button:not(:disabled) {
     <button id="accessButton" disabled>Acceder</button>
 </div>
 
-<!-- 🔹 ANUNCIO NATIVO (TUYO) -->
+<!-- ANUNCIO NATIVO (TUYO) -->
 <div class="ad-container">
     <script async data-cfasync="false"
         src="https://pl28533162.effectivegatecpm.com/0a54289caa2e24219cc50169ae637963/invoke.js">
@@ -126,50 +125,43 @@ button:not(:disabled) {
     <div id="container-0a54289caa2e24219cc50169ae637963"></div>
 </div>
 
-<!-- LÓGICA -->
+<!-- SOCIAL BAR (TUYO) -->
+<script src="https://pl28533123.effectivegatecpm.com/c0/fa/b1/c0fab117c3bc319fb642565de68be6e9.js"></script>
+
 <script>
 let countdown = 10;
 const messages = [
     "Cargando los módulos...",
-    "Cargando la estética...",
-    "Conectando con servidores...",
-    "Bienvenid@ a GT IPTV"
+    "Conectando servidores...",
+    "Optimizando experiencia...",
+    "Presiona el botón acceder para continuar"
 ];
+let index = 0;
 
-let messageIndex = 0;
-const messageEl = document.getElementById("message");
-const countdownEl = document.getElementById("countdown");
-const button = document.getElementById("accessButton");
+const msg = document.getElementById("message");
+const cd = document.getElementById("countdown");
+const btn = document.getElementById("accessButton");
+const logo = document.querySelector(".logo");
 
 const timer = setInterval(() => {
     countdown--;
-    countdownEl.textContent = countdown;
+    cd.textContent = countdown;
 
-    if (countdown % 3 === 0 && messageIndex < messages.length) {
-        messageEl.textContent = messages[messageIndex++];
+    if (countdown % 3 === 0 && index < messages.length) {
+        msg.textContent = messages[index++];
     }
 
     if (countdown <= 0) {
         clearInterval(timer);
-        countdownEl.style.display = "none";
-        button.disabled = false;
-        document.querySelector(".logo").style.animation = "none";
+        cd.style.display = "none";
+        btn.disabled = false;
+        logo.style.animation = "none";
     }
 }, 1000);
 
-button.addEventListener("click", () => {
+btn.addEventListener("click", () => {
     window.location.href = "go:azplay";
 });
-</script>
-
-<!-- 🔥 SOCIAL BAR (TUYO) -->
-<script>
-setTimeout(() => {
-    const s = document.createElement("script");
-    s.src = "https://pl28533123.effectivegatecpm.com/c0/fa/b1/c0fab117c3bc319fb642565de68be6e9.js";
-    s.async = true;
-    document.body.appendChild(s);
-}, 3000);
 </script>
 
 </body>
