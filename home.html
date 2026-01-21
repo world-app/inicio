@@ -3,124 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GT IPTV - Bienvenido</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<title>GT IPTV</title>
 
 <style>
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
 body {
-    background: linear-gradient(to bottom, #A90033, #410536);
-    color: white;
-    font-family: 'Roboto', Arial, sans-serif;
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  background: linear-gradient(to bottom, #A90033, #410536);
+  font-family: Arial, sans-serif;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
 }
-.logo-section {
-    flex: 0 0 30%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
 .logo {
-    width: 150px;
-    animation: pulse 2s infinite;
+  margin-top: 30px;
 }
-@keyframes pulse {
-    0%,100% {transform: scale(1);}
-    50% {transform: scale(1.05);}
+.logo img {
+  width: 140px;
 }
-.content-section {
-    flex: 0 0 40%;
-    text-align: center;
+
+.message {
+  font-size: 18px;
+  margin: 20px;
 }
-.countdown {
-    font-size: 25px;
-}
-.button-section {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-}
+
 button {
-    padding: 8px 30px;
-    font-size: 18px;
-    border-radius: 10px;
-    border: none;
-    background: #28a745;
-    color: #fff;
+  padding: 12px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 8px;
+  background: #28a745;
+  color: #ffffff;
+  cursor: pointer;
 }
-button:disabled {
-    background: #666;
+button:active {
+  transform: scale(0.97);
 }
-.ad-container {
-    position: fixed;
-    bottom: 0;
-    width: 90%;
-    max-width: 400px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,.9);
-    padding: 10px;
-    border-radius: 10px;
-}
-.close-btn {
-    position: absolute;
-    top: 5px;
-    right: 8px;
-    background: none;
-    color: white;
-    font-size: 20px;
-    border: none;
+
+.ad-box {
+  width: 100%;
+  max-width: 360px;
+  margin-bottom: 10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="logo-section">
-<img src="https://world-app.github.io/docs/2702606_ico.png" class="logo">
-</div>
+  <div class="logo">
+    <img src="https://world-app.github.io/docs/2702606_ico.png" alt="GT IPTV">
+  </div>
 
-<div class="content-section">
-<div id="message">Inicializando APP...</div>
-<div class="countdown" id="countdown">10</div>
-</div>
+  <div class="message">
+    Bienvenido a GT IPTV
+  </div>
 
-<div class="button-section">
-<button id="accessButton" disabled>Acceder</button>
-</div>
+  <!-- ✅ BOTÓN FUNCIONAL -->
+  <button onclick="window.location.href='go:azplay';">
+    Acceder
+  </button>
 
-<div class="ad-container" id="adContainer">
-<button class="close-btn" onclick="this.parentElement.style.display='none'">×</button>
+  <!-- ✅ TUS ÚNICOS ANUNCIOS -->
+  <div class="ad-box">
 
-<!-- TU BLOQUE Adsterra -->
-<script async data-cfasync="false"
-src="https://pl28533162.effectivegatecpm.com/0a54289caa2e24219cc50169ae637963/invoke.js"></script>
-<div id="container-0a54289caa2e24219cc50169ae637963"></div>
-</div>
+    <!-- Script 1 (TUYO) -->
+    <script src="https://pl28533123.effectivegatecpm.com/c0/fa/b1/c0fab117c3bc319fb642565de68be6e9.js"></script>
 
-<script>
-let countdown = 10;
-const btn = document.getElementById("accessButton");
-const cd = document.getElementById("countdown");
+    <!-- Script 2 (TUYO) -->
+    <script async="async" data-cfasync="false"
+      src="https://pl28533162.effectivegatecpm.com/0a54289caa2e24219cc50169ae637963/invoke.js">
+    </script>
+    <div id="container-0a54289caa2e24219cc50169ae637963"></div>
 
-setInterval(()=>{
-    countdown--;
-    cd.textContent = countdown;
-    if(countdown <= 0){
-        btn.disabled = false;
-        cd.style.display = "none";
-    }
-},1000);
-
-btn.onclick = ()=> location.href="go:azplay";
-</script>
-
-<!-- TU POPUNDER -->
-<script src="https://pl28533123.effectivegatecpm.com/c0/fa/b1/c0fab117c3bc319fb642565de68be6e9.js"></script>
+  </div>
 
 </body>
 </html>
