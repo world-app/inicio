@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GT IPTV - Bienvenido</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    padding:0 0 160px 0; /* espacio reservado para el anuncio */
+    height:100vh;
+    font-family:'Roboto',Arial,sans-serif;
+    background:linear-gradient(to bottom,#A90033,#410536);
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    overflow-x:hidden;
+    overflow-y:auto;
+}
+
+/* LOGO */
+.logo-section{
+    margin-top:5px;
+}
+.logo{
+    width:115px;
+    height:115px;
+    animation:pulse 2s infinite;
+}
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.05)}
+}
+
+/* CONTENIDO */
+.content{
+    margin-top:25px;
+    text-align:center;
+}
+.message{
+    font-size:20px;
+    font-weight:700;
+    margin-bottom:10px;
+}
+.countdown{
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+/* BOTÓN */
+button{
+    padding:10px 35px;
+    font-size:18px;
+    font-weight:700;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    color:#fff;
+}
+button:disabled{
+    background:#666;
+    cursor:not-allowed;
+}
+button:not(:disabled){
+    background:#28a745;
+}
+button:not(:disabled):hover{
+    background:#218838;
+}
+
+/* ANUNCIO */
+.ad-container{
+    position:fixed;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+    width:80%;
+    max-width:360px;
+    max-height:250px;
+    background:rgba(0,0,0,0.9);
+    padding:8px;
+    border-radius:8px;
+    border:3px solid #A90033;
+    z-index:9999;
+}
+
+
+.close-btn{
+    position:absolute;
+    top:5px;
+    right:5px;
+    background:none;
+    border:none;
+    color:#fff;
+    font-size:20px;
+    cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="logo-section">
+    <img class="logo" src="https://world-app.github.io/docs/2702606_ico.png" alt="GT IPTV">
+</div>
+
+<div class="content">
+    <div class="message" id="message">Inicializando APP...</div>
+    <div class="countdown" id="countdown">10</div>
+    <button id="accessButton" disabled>Acceder</button>
+</div>
+
+<!-- ANUNCIO NATIVO -->
+<div class="ad-container" id="adContainer">
+    <button class="close-btn" id="closeAd">&times;</button>
+
+    <!-- Código NATIVO -->
+    <script async="async" data-cfasync="false" src="https://pl28619336.effectivegatecpm.com/3847926b03ea459977518dbcd3d4b68b/invoke.js"></script>
+<div id="container-3847926b03ea459977518dbcd3d4b68b"></div>
+</div>
+
+<!-- SOCIAL BAR (automático) -->
+<script src="https://pl28619380.effectivegatecpm.com/15/db/f9/15dbf9bf8c342f12c0d36d1711f5a66a.js"></script>
+
+<script>
+let countdown = 10;
+const messages = [
+    "Cargando los módulos...",
+    "Cargando la estética...",
+    "Conectando con servidores...",
+    "Presiona el botón ACCEDER para continuar"
+];
+let msgIndex = 0;
+
+const messageEl = document.getElementById("message");
+const countdownEl = document.getElementById("countdown");
+const button = document.getElementById("accessButton");
+
+const timer = setInterval(()=>{
+    countdown--;
+    countdownEl.textContent = countdown;
+
+    if(countdown % 3 === 0 && msgIndex < messages.length){
+        messageEl.textContent = messages[msgIndex++];
+    }
+
+    if(countdown <= 0){
+        clearInterval(timer);
+        countdownEl.style.display="none";
+        button.disabled=false;
+        document.querySelector(".logo").style.animation="none";
+    }
+},1000);
+
+button.addEventListener("click",()=>{
+    window.location.href="go:azplay";
+});
+
+document.getElementById("closeAd").onclick=()=>{
+    document.getElementById("adContainer").style.display="none";
+};
+</script>
+
+</body>
+</html>
